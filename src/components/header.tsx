@@ -2,8 +2,16 @@
 
 import { useState } from "react";
 
+import { Special_Elite } from "next/font/google";
+
+import Logo from "@images/logo.svg";
 import MenuIcon from "@icons/menu.svg";
 import CloseIcon from "@icons/close.svg";
+
+const specialElite = Special_Elite({
+  weight: "400",
+  subsets: ["latin"],
+});
 
 const SECTIONS = [
   { id: "about", label: "About me" },
@@ -20,17 +28,17 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed w-full top-0">
+    <header className={`fixed w-full top-0 ${specialElite.className}`}>
       <nav className="flex items-center justify-between px-4 py-3 sm:px-20 sm:py-5">
-        <a href="#hero">Portfolio</a>
+        <a href="#hero">
+          <Logo />
+        </a>
 
         {/* desktop 내비게이션 */}
-        <ul className="hidden sm:flex gap-10">
+        <ul className="hidden sm:flex gap-10 text-lg">
           {SECTIONS.map((s) => (
             <li key={s.id}>
-              <a href={`#${s.id}`} className="text-xl">
-                {s.label}
-              </a>
+              <a href={`#${s.id}`}>{s.label}</a>
             </li>
           ))}
         </ul>
