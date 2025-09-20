@@ -1,23 +1,23 @@
-"use client";
+'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
 
-import { Special_Elite } from "next/font/google";
+import { Special_Elite } from 'next/font/google';
 
-import Logo from "@images/logo.svg";
-import MenuIcon from "@icons/menu.svg";
-import CloseIcon from "@icons/close.svg";
+import Logo from '@images/logo.svg';
+import MenuIcon from '@icons/menu.svg';
+import CloseIcon from '@icons/close.svg';
 
 const specialElite = Special_Elite({
-  weight: "400",
-  subsets: ["latin"],
+  weight: '400',
+  subsets: ['latin'],
 });
 
 const SECTIONS = [
-  { id: "about", label: "About me" },
-  { id: "skills", label: "Skills" },
-  { id: "projects", label: "Projects" },
-  { id: "contact", label: "Contact" },
+  { id: 'about', label: 'About me' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'contact', label: 'Contact' },
 ];
 
 const Header = () => {
@@ -28,14 +28,14 @@ const Header = () => {
   };
 
   return (
-    <header className={`fixed w-full top-0 z-20 ${specialElite.className}`}>
+    <header className={`fixed top-0 z-20 w-full ${specialElite.className}`}>
       <nav className="flex items-center justify-between px-4 py-3 sm:px-20 sm:py-5">
         <a href="#hero">
           <Logo />
         </a>
 
         {/* desktop 내비게이션 */}
-        <ul className="hidden sm:flex gap-10 text-lg">
+        <ul className="hidden gap-10 text-lg sm:flex">
           {SECTIONS.map((s) => (
             <li key={s.id}>
               <a href={`#${s.id}`}>{s.label}</a>
@@ -61,11 +61,11 @@ const Header = () => {
           aria-labelledby="mobile-menu-title"
           role="dialog"
           aria-modal="true"
-          className="z-50 fixed inset-0"
+          className="fixed inset-0 z-50"
         >
           <div className="absolute inset-0 bg-black/60" onClick={handleClose} />
 
-          <div className="absolute px-4 py-3 bg-white right-0 shadow-2xl translate-x-0 top-0 h-full w-3/5 flex flex-col justify-between">
+          <div className="absolute top-0 right-0 flex h-full w-3/5 translate-x-0 flex-col justify-between bg-white px-4 py-3 shadow-2xl">
             <h2 id="mobile-menu-title" className="sr-only">
               Menu
             </h2>
@@ -75,7 +75,7 @@ const Header = () => {
               </button>
             </div>
 
-            <ul className="space-y-10 flex flex-col items-center text-xl">
+            <ul className="flex flex-col items-center space-y-10 text-xl">
               {SECTIONS.map((s) => (
                 <li key={s.id}>
                   <a href={`#${s.id}`} onClick={handleClose}>

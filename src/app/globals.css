@@ -1,12 +1,12 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root,
-[data-theme="light"] {
+[data-theme='light'] {
   --bg: #ffffff;
   --fg: #171717;
 }
 
-[data-theme="dark"] {
+[data-theme='dark'] {
   --bg: #171717;
   --fg: #ffffff;
 }

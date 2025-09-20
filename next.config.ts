@@ -1,26 +1,24 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   turbopack: {
     rules: {
-      "*.svg": {
+      '*.svg': {
         loaders: [
           {
-            loader: "@svgr/webpack",
-            options: { typescript: true, ext: "tsx" },
+            loader: '@svgr/webpack',
+            options: { typescript: true, ext: 'tsx' },
           },
         ],
-        as: "*.js",
+        as: '*.js',
       },
     },
-    resolveExtensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
+    resolveExtensions: ['.tsx', '.ts', '.jsx', '.js', '.json'],
   },
 
   webpack: (config) => {
     // @ts-expect-error 타입 에러 무시
-    const fileLoaderRule = config.module.rules.find((rule) =>
-      rule.test?.test?.(".svg")
-    );
+    const fileLoaderRule = config.module.rules.find((rule) => rule.test?.test?.('.svg'));
 
     if (fileLoaderRule) {
       config.module.rules.push(
@@ -31,11 +29,11 @@ const nextConfig: NextConfig = {
           resourceQuery: { not: [...fileLoaderRule.resourceQuery.not, /url/] },
           use: [
             {
-              loader: "@svgr/webpack",
-              options: { typescript: true, ext: "tsx" },
+              loader: '@svgr/webpack',
+              options: { typescript: true, ext: 'tsx' },
             },
           ],
-        }
+        },
       );
       fileLoaderRule.exclude = /\.svg$/i;
     } else {
@@ -43,7 +41,7 @@ const nextConfig: NextConfig = {
         test: /\.svg$/i,
         issuer: /\.[jt]sx?$/,
         resourceQuery: { not: [/url/] },
-        use: [{ loader: "@svgr/webpack", options: { typescript: true } }],
+        use: [{ loader: '@svgr/webpack', options: { typescript: true } }],
       });
     }
 

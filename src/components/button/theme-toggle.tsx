@@ -1,18 +1,18 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-import SunIcon from "@icons/sun.svg";
-import MoonIcon from "@icons/moon.svg";
+import SunIcon from '@icons/sun.svg';
+import MoonIcon from '@icons/moon.svg';
 
 const ThemeToggle = () => {
   const [dark, setDark] = useState(false);
 
   useEffect(() => {
     if (dark) {
-      document.documentElement.setAttribute("data-theme", "dark");
+      document.documentElement.setAttribute('data-theme', 'dark');
     } else {
-      document.documentElement.setAttribute("data-theme", "light");
+      document.documentElement.setAttribute('data-theme', 'light');
     }
   }, [dark]);
 
@@ -20,13 +20,9 @@ const ThemeToggle = () => {
     <button
       aria-label="toggle theme"
       onClick={() => setDark(!dark)}
-      className="rounded-full p-2 bg-fg/50 fixed z-10 bottom-6 right-6 shadow-lg transition"
+      className="bg-fg/50 fixed right-6 bottom-6 z-10 rounded-full p-2 shadow-lg transition"
     >
-      {dark ? (
-        <MoonIcon className="text-bg" />
-      ) : (
-        <SunIcon className="text-bg" />
-      )}
+      {dark ? <MoonIcon className="text-bg" /> : <SunIcon className="text-bg" />}
     </button>
   );
 };
