@@ -4,7 +4,7 @@ import HeroTitle from '@images/hero-title.svg';
 
 const Hero = () => {
   return (
-    <section className="flex h-dvh w-full flex-col items-center justify-end bg-[url('/images/paper-texture.jpg')] bg-cover">
+    <section className="hero-bg flex h-dvh w-full flex-col items-center justify-end bg-cover">
       <HeroTitle className="w-2xs flex-1 sm:w-md sm:flex-none" />
       <Image
         src="/images/profile.png"

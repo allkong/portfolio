@@ -4,16 +4,24 @@
 [data-theme='light'] {
   --bg: #ffffff;
   --fg: #171717;
+  --hero-bg: url('/images/paper-texture-light.jpg');
 }
 
 [data-theme='dark'] {
   --bg: #171717;
   --fg: #ffffff;
+  --hero-bg: url('/images/paper-texture-dark.jpg');
 }
 
 @theme {
   --color-bg: var(--bg);
   --color-fg: var(--fg);
+}
+
+@layer utilities {
+  .hero-bg {
+    background-image: var(--hero-bg);
+  }
 }
 
 body {
