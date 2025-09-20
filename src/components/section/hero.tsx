@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import HeroTitle from './hero-title';
+import HeroTitle from '../hero-title';
 
 const Hero = () => {
   return (
