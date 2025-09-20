@@ -28,7 +28,7 @@ const Header = () => {
   };
 
   return (
-    <header className={`fixed w-full top-0 ${specialElite.className}`}>
+    <header className={`fixed w-full top-0 z-20 ${specialElite.className}`}>
       <nav className="flex items-center justify-between px-4 py-3 sm:px-20 sm:py-5">
         <a href="#hero">
           <Logo />
