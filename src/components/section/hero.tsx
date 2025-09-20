@@ -1,12 +1,18 @@
 import Image from 'next/image';
-import HeroTitle from '../hero-title';
+
+import HeroTitle from '@images/hero-title.svg';
 
 const Hero = () => {
   return (
-    <section className="h-screen w-full bg-[url('/images/paper-texture.jpg')] bg-cover pt-14">
-      <p>다빈이코드</p>
-      <HeroTitle />
-      <Image src="/images/profile.png" alt="프로필" width={400} height={0} className="" />
+    <section className="flex h-dvh w-full flex-col items-center justify-end bg-[url('/images/paper-texture.jpg')] bg-cover">
+      <HeroTitle className="w-2xs flex-1 sm:w-md sm:flex-none" />
+      <Image
+        src="/images/profile.png"
+        alt="프로필"
+        width={500}
+        height={0}
+        className="w-96 sm:mt-8"
+      />
     </section>
   );
 };
