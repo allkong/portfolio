@@ -20,7 +20,7 @@ const ThemeToggle = () => {
     <button
       aria-label="toggle theme"
       onClick={() => setDark(!dark)}
-      className="bg-fg/50 fixed right-6 bottom-6 z-10 rounded-full p-2 shadow-lg transition"
+      className="bg-fg/50 rounded-full p-2 shadow-lg transition"
     >
       {dark ? <MoonIcon className="text-bg" /> : <SunIcon className="text-bg" />}
     </button>
