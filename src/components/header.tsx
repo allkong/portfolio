@@ -65,7 +65,7 @@ const Header = () => {
         >
           <div className="absolute inset-0 bg-black/60" onClick={handleClose} />
 
-          <div className="absolute top-0 right-0 flex h-full w-3/5 translate-x-0 flex-col justify-between bg-white px-4 py-3 shadow-2xl">
+          <div className="bg-bg absolute top-0 right-0 flex h-full w-3/5 translate-x-0 flex-col justify-between px-4 py-3 shadow-2xl">
             <h2 id="mobile-menu-title" className="sr-only">
               Menu
             </h2>
