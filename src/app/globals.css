@@ -16,11 +16,16 @@
 @theme {
   --color-bg: var(--bg);
   --color-fg: var(--fg);
+  --color-primary: #ffad96;
 }
 
 @layer utilities {
   .hero-bg {
     background-image: var(--hero-bg);
+  }
+
+  .font-special-elite {
+    font-family: var(--font-special-elite), Arial, Helvetica, sans-serif;
   }
 }
 
