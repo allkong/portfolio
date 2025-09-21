@@ -2,16 +2,9 @@
 
 import { useState } from 'react';
 
-import { Special_Elite } from 'next/font/google';
-
 import Logo from '@images/logo.svg';
 import MenuIcon from '@icons/menu.svg';
 import CloseIcon from '@icons/close.svg';
-
-const specialElite = Special_Elite({
-  weight: '400',
-  subsets: ['latin'],
-});
 
 const SECTIONS = [
   { id: 'about', label: 'About me' },
@@ -28,7 +21,7 @@ const Header = () => {
   };
 
   return (
-    <header className={`fixed top-0 z-20 w-full ${specialElite.className}`}>
+    <header className={`font-special-elite fixed top-0 z-20 w-full`}>
       <nav className="flex items-center justify-between px-4 py-3 sm:px-20 sm:py-5">
         <a href="#hero">
           <Logo />
