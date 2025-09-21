@@ -21,11 +21,11 @@ const Tooltip = ({ label, children }: TooltipProps) => {
   }, [isOpen]);
 
   return (
-    <div tabIndex={0} aria-describedby={`${label}-tooltip`} className="group relative inline-flex">
+    <div tabIndex={0} className="group relative inline-flex">
       <button
         type="button"
-        aria-haspopup="dialog"
         aria-expanded={isOpen}
+        aria-describedby={`${label}-tooltip`}
         onClick={() => setIsOpen(!isOpen)}
       >
         {children}
