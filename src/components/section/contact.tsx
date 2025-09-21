@@ -1,5 +1,9 @@
 const Contact = () => {
-  return <section>contact</section>;
+  return (
+    <section id="contact" className="h-dvh">
+      contact
+    </section>
+  );
 };
 
 export default Contact;
