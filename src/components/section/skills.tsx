@@ -77,7 +77,7 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="flex flex-col items-center justify-center space-y-11 bg-[#F8F8F8] py-20"
+      className="bg-surface flex flex-col items-center justify-center space-y-11 py-20"
     >
       <SectionTitle title="Skills" />
 
@@ -96,7 +96,7 @@ const Skills = () => {
                 <span
                   id={`${name}-tooltip`}
                   role="tooltip"
-                  className="bg-fg/50 text-bg pointer-events-none invisible absolute top-full left-1/2 mt-1 -translate-x-1/2 rounded-full px-2 text-sm whitespace-nowrap opacity-0 shadow-sm transition-opacity duration-150 ease-out group-hover:visible group-hover:opacity-100 group-focus-visible:visible group-focus-visible:opacity-100"
+                  className="bg-fg/80 text-bg pointer-events-none invisible absolute top-full left-1/2 mt-1 -translate-x-1/2 rounded-full px-2 text-sm whitespace-nowrap opacity-0 shadow-sm transition-opacity duration-150 ease-out group-hover:visible group-hover:opacity-100 group-focus-visible:visible group-focus-visible:opacity-100"
                 >
                   {name}
                 </span>
