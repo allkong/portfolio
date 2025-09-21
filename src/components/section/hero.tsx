@@ -9,6 +9,7 @@ const Hero = () => {
       id="hero"
       className="hero-bg flex h-dvh w-full flex-col items-center justify-end bg-cover"
     >
+      <h1 className="sr-only">프론트엔드 개발자 정다빈 포트폴리오</h1>
       <HeroTitle className="group max-w-2xs flex-1 sm:max-w-sm lg:max-w-lg xl:max-w-sm 2xl:max-w-md [&_g]:[transform-origin:center] [&_g]:transform [&_g]:transition-transform [&_g]:duration-200 [&_g]:ease-out [&_g]:[transform-box:fill-box] motion-reduce:[&_g]:transition-none [&_g:hover]:-translate-y-4" />
       <div className="relative flex max-h-3/5 w-full items-center justify-center">
         <Image
