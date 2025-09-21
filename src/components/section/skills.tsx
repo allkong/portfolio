@@ -1,5 +1,6 @@
 import SectionTitle from '@/components/section-title';
 import SkillCard from '@/components/skill-card';
+import Tooltip from '@/components/tooltip';
 
 import JavascriptIcon from '@icons/skills/javascript.svg';
 import TypescriptIcon from '@icons/skills/typescript.svg';
@@ -85,22 +86,9 @@ const Skills = () => {
         {SKILL_GROUPS.map(({ category, color, icons }) => (
           <SkillCard key={category} category={category} color={color}>
             {icons.map(({ Icon, name }) => (
-              <div
-                key={name}
-                tabIndex={0}
-                aria-describedby={`${name}-tooltip`}
-                className="group relative inline-flex"
-              >
+              <Tooltip key={name} label={name}>
                 <Icon aria-label={name} className="block" />
-
-                <span
-                  id={`${name}-tooltip`}
-                  role="tooltip"
-                  className="bg-fg/80 text-bg pointer-events-none invisible absolute top-full left-1/2 mt-1 -translate-x-1/2 rounded-full px-2 text-sm whitespace-nowrap opacity-0 shadow-sm transition-opacity duration-150 ease-out group-hover:visible group-hover:opacity-100 group-focus-visible:visible group-focus-visible:opacity-100"
-                >
-                  {name}
-                </span>
-              </div>
+              </Tooltip>
             ))}
           </SkillCard>
         ))}
