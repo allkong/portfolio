@@ -27,9 +27,9 @@ const About = () => {
           href="/resume_dabin-jeong.pdf"
           download
           aria-label="이력서 다운로드"
-          className="bg-bg border-fg hover:bg-fg hover:text-bg flex items-center gap-2.5 rounded-full border px-4 py-2 font-medium"
+          className="bg-primary text-bg hover:bg-bg hover:text-primary flex items-center gap-2.5 rounded-full border px-4 py-2 font-medium"
         >
-          <DownloadIcon aria-hidden className="w-3.5 sm:w-5" />
+          <DownloadIcon aria-hidden className="w-4 sm:w-5" />
           이력서 다운로드
         </a>
       </div>
