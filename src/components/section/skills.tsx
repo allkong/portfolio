@@ -23,46 +23,42 @@ import FigmaIcon from '@icons/skills/figma.svg';
 import NotionIcon from '@icons/skills/notion.svg';
 import JiraIcon from '@icons/skills/jira.svg';
 
+const SKILL_GROUPS = [
+  {
+    category: 'Languages & Frameworks',
+    color: '#FFCF4C',
+    icons: [JavascriptIcon, TypescriptIcon, ReactIcon, NextJsIcon, VueJsIcon],
+  },
+  { category: 'UI / Styling', color: '#3B89FF', icons: [TailwindIcon, EmotionIcon, AntdvIcon] },
+  { category: 'Testing & DevTools', color: '#FF6232', icons: [StorybookIcon, MSWIcon] },
+  {
+    category: 'State & Data',
+    color: '#B580FF',
+    icons: [ZustandIcon, RecoilIcon, TanstackQueryIcon],
+  },
+  {
+    category: 'Collaboration',
+    color: '#878787',
+    icons: [GithubIcon, FigmaIcon, NotionIcon, JiraIcon],
+  },
+];
+
 const Skills = () => {
   return (
     <section
       id="skills"
-      className="flex flex-col items-center justify-center space-y-11 bg-[#F8F8F8] px-5 py-20"
+      className="flex flex-col items-center justify-center space-y-11 bg-[#F8F8F8] py-20"
     >
       <SectionTitle title="Skills" />
 
       <div className="flex max-w-xl flex-wrap justify-center gap-2">
-        <SkillCard category="Languages & Frameworks" color="#FFCF4C">
-          <JavascriptIcon />
-          <TypescriptIcon />
-          <ReactIcon />
-          <NextJsIcon />
-          <VueJsIcon />
-        </SkillCard>
-
-        <SkillCard category="UI / Styling" color="#3B89FF">
-          <TailwindIcon />
-          <EmotionIcon />
-          <AntdvIcon />
-        </SkillCard>
-
-        <SkillCard category="Testing & DevTools" color="#FF6232">
-          <StorybookIcon />
-          <MSWIcon />
-        </SkillCard>
-
-        <SkillCard category="State & Data" color="#B580FF">
-          <ZustandIcon />
-          <RecoilIcon />
-          <TanstackQueryIcon />
-        </SkillCard>
-
-        <SkillCard category="Collaboration" color="#878787">
-          <GithubIcon />
-          <FigmaIcon />
-          <NotionIcon />
-          <JiraIcon />
-        </SkillCard>
+        {SKILL_GROUPS.map(({ category, color, icons }) => (
+          <SkillCard key={category} category={category} color={color}>
+            {icons.map((Icon, i) => (
+              <Icon key={i} />
+            ))}
+          </SkillCard>
+        ))}
       </div>
     </section>
   );
