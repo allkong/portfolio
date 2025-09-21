@@ -16,6 +16,7 @@
 @theme {
   --color-bg: var(--bg);
   --color-fg: var(--fg);
+  --color-primary: #ffad96;
 }
 
 @layer utilities {
