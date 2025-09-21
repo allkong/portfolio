@@ -14,9 +14,10 @@ const Hero = () => {
         <Image
           src={profile}
           alt="프로필"
-          width={1200}
-          height={0}
-          className="h-auto max-h-full object-contain"
+          priority
+          width={profile.width}
+          height={profile.height}
+          className="h-auto max-h-full w-full object-contain"
         />
       </div>
     </section>
