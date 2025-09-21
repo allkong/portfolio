@@ -4,12 +4,7 @@ const nextConfig: NextConfig = {
   turbopack: {
     rules: {
       '*.svg': {
-        loaders: [
-          {
-            loader: '@svgr/webpack',
-            options: { typescript: true, ext: 'tsx' },
-          },
-        ],
+        loaders: [{ loader: '@svgr/webpack', options: { typescript: true } }],
         as: '*.js',
       },
     },
@@ -17,33 +12,28 @@ const nextConfig: NextConfig = {
   },
 
   webpack: (config) => {
-    // @ts-expect-error 타입 에러 무시
-    const fileLoaderRule = config.module.rules.find((rule) => rule.test?.test?.('.svg'));
-
-    if (fileLoaderRule) {
-      config.module.rules.push(
-        { ...fileLoaderRule, test: /\.svg$/i, resourceQuery: /url/ },
-        {
-          test: /\.svg$/i,
-          issuer: fileLoaderRule.issuer,
-          resourceQuery: { not: [...fileLoaderRule.resourceQuery.not, /url/] },
-          use: [
-            {
-              loader: '@svgr/webpack',
-              options: { typescript: true, ext: 'tsx' },
-            },
-          ],
-        },
-      );
-      fileLoaderRule.exclude = /\.svg$/i;
-    } else {
-      config.module.rules.push({
-        test: /\.svg$/i,
-        issuer: /\.[jt]sx?$/,
-        resourceQuery: { not: [/url/] },
-        use: [{ loader: '@svgr/webpack', options: { typescript: true } }],
-      });
+    const assetRule = config.module.rules.find(
+      // @ts-expect-error 타입 에러 무시
+      (rule) =>
+        rule?.test?.test?.('.png') || rule?.test?.test?.('.jpg') || rule?.test?.test?.('.svg'),
+    );
+    if (assetRule) {
+      const prevExclude = assetRule.exclude;
+      if (Array.isArray(prevExclude)) assetRule.exclude = [...prevExclude, /\.svg$/i];
+      else if (prevExclude) assetRule.exclude = [prevExclude, /\.svg$/i];
+      else assetRule.exclude = [/\.svg$/i];
     }
+
+    config.module.rules.push({
+      test: /\.svg$/i,
+      issuer: /\.[jt]sx?$/,
+      use: [
+        {
+          loader: '@svgr/webpack',
+          options: { typescript: true, svgo: true, titleProp: true, ref: true },
+        },
+      ],
+    });
 
     return config;
   },
