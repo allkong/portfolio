@@ -27,19 +27,49 @@ const SKILL_GROUPS = [
   {
     category: 'Languages & Frameworks',
     color: '#FFCF4C',
-    icons: [JavascriptIcon, TypescriptIcon, ReactIcon, NextJsIcon, VueJsIcon],
+    icons: [
+      { Icon: JavascriptIcon, name: 'JavaScript' },
+      { Icon: TypescriptIcon, name: 'TypeScript' },
+      { Icon: ReactIcon, name: 'React' },
+      { Icon: NextJsIcon, name: 'Next.js' },
+      { Icon: VueJsIcon, name: 'Vue.js' },
+    ],
   },
-  { category: 'UI / Styling', color: '#3B89FF', icons: [TailwindIcon, EmotionIcon, AntdvIcon] },
-  { category: 'Testing & DevTools', color: '#FF6232', icons: [StorybookIcon, MSWIcon] },
+  {
+    category: 'UI / Styling',
+    color: '#3B89FF',
+    icons: [
+      { Icon: TailwindIcon, name: 'Tailwind CSS' },
+      { Icon: EmotionIcon, name: 'Emotion' },
+      { Icon: AntdvIcon, name: 'Ant Design Vue' },
+    ],
+  },
+  {
+    category: 'Testing & DevTools',
+    color: '#FF6232',
+    icons: [
+      { Icon: StorybookIcon, name: 'Storybook' },
+      { Icon: MSWIcon, name: 'MSW (Mock Service Worker)' },
+    ],
+  },
   {
     category: 'State & Data',
     color: '#B580FF',
-    icons: [ZustandIcon, RecoilIcon, TanstackQueryIcon],
+    icons: [
+      { Icon: ZustandIcon, name: 'Zustand' },
+      { Icon: RecoilIcon, name: 'Recoil' },
+      { Icon: TanstackQueryIcon, name: 'TanStack Query' },
+    ],
   },
   {
     category: 'Collaboration',
     color: '#878787',
-    icons: [GithubIcon, FigmaIcon, NotionIcon, JiraIcon],
+    icons: [
+      { Icon: GithubIcon, name: 'GitHub' },
+      { Icon: FigmaIcon, name: 'Figma' },
+      { Icon: NotionIcon, name: 'Notion' },
+      { Icon: JiraIcon, name: 'Jira' },
+    ],
   },
 ];
 
@@ -54,8 +84,23 @@ const Skills = () => {
       <div className="flex max-w-xl flex-wrap justify-center gap-2">
         {SKILL_GROUPS.map(({ category, color, icons }) => (
           <SkillCard key={category} category={category} color={color}>
-            {icons.map((Icon, i) => (
-              <Icon key={i} />
+            {icons.map(({ Icon, name }) => (
+              <div
+                key={name}
+                tabIndex={0}
+                aria-describedby={`${name}-tooltip`}
+                className="group relative inline-flex"
+              >
+                <Icon aria-label={name} className="block" />
+
+                <span
+                  id={`${name}-tooltip`}
+                  role="tooltip"
+                  className="bg-fg/50 text-bg pointer-events-none invisible absolute top-full left-1/2 mt-1 -translate-x-1/2 rounded-full px-2 text-sm whitespace-nowrap opacity-0 shadow-sm transition-opacity duration-150 ease-out group-hover:visible group-hover:opacity-100 group-focus-visible:visible group-focus-visible:opacity-100"
+                >
+                  {name}
+                </span>
+              </div>
             ))}
           </SkillCard>
         ))}
