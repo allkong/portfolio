@@ -1,3 +1,4 @@
+import SectionTitle from '@/components/section-title';
 import DownloadIcon from '@icons/download.svg';
 import UserIcon from '@icons/user.svg';
 import CakeIcon from '@icons/cake.svg';
@@ -20,7 +21,7 @@ const INTRO = [
 const About = () => {
   return (
     <section id="about" className="mx-5 flex flex-col items-center justify-center space-y-11 py-20">
-      <h2 className="font-special-elite text-3xl sm:text-4xl">About me</h2>
+      <SectionTitle title="About me" />
 
       <div>
         <a
